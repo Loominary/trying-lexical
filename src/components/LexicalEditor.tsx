@@ -40,5 +40,15 @@ export default function LexicalEditor({}:Props):JSX.Element{
         onError,
       };
     
-    return <h1>ITS A ME</h1>
+    return (
+        <LexicalComposer initialConfig={initialConfig}>
+          <PlainTextPlugin
+            contentEditable={<ContentEditable />}
+            placeholder={<div>Enter some text...</div>}
+            ErrorBoundary={LexicalErrorBoundary}
+          />
+          <HistoryPlugin />
+          <MyCustomAutoFocusPlugin />
+        </LexicalComposer>
+      );
 }
